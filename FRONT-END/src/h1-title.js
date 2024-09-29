@@ -1,5 +1,11 @@
-const h1Title = {
+export const h1Title = {
   title: "generate title from h1-title.js" ,
 };
 
-export default h1Title;
+function insertTitle(element, title){
+  return element.innerHTML = title
+}
+
+
+//export default h1Title;
+export default insertTitle;
