@@ -11,7 +11,42 @@
     <link rel="stylesheet" href="styles/stylekanban.css" />
   </head>
   <body>
-    <h1 id="test-h1">Hello</h1>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-4">
+      <div class="container">
+        <a class="navbar-brand" data-link href="/"> Personal Kanban Tool </a>
+        <!-- <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#mobile-nav"
+        >
+          <span class="navbar-toggler-icon" />
+        </button> -->
+
+        <div class="collapse navbar-collapse" id="mobile-nav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                data-link
+                href="/register"
+                id="register-nav-link"
+              >
+                Sign Up
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-link href="/login" id="login-nav-link">
+                Login
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id="app"></div>
+
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
       integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
