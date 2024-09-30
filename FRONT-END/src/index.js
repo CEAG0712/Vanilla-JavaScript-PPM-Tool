@@ -1,10 +1,16 @@
-import insertTitle from "./h1-title";
+import h1Title from "./h1-title";
 import "./styles/stylekanban.css";
 
 const testH1 = document.getElementById("test-h1");
 
-// testH1.innerHTML = h1Title.title;
-const titleFromFunction = "title from function"
-insertTitle(testH1, titleFromFunction )
+
+insertTitle(testH1, h1Title.title);
+
+const insertTitle = (element, title) => {
+    return (element.innerHTML = title);
+  };
+
+
+
 
 console.log("webpack setup");
