@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const Dotenv = require("dotenv-webpack"); // Import the plugin
 
 module.exports = {
   mode: "development",
@@ -13,7 +14,7 @@ module.exports = {
 
   devServer: {
     static: {
-      directory: path.resolve(__dirname, "dist"),
+      directory: path.resolve(__dirname, "src"),
     },
     port: 3001,
     open: true,
@@ -51,5 +52,6 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [{ from: "src/pages", to: "pages" }],
     }),
+    new Dotenv(),
   ],
 };
