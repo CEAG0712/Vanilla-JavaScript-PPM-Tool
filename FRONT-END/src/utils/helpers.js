@@ -38,12 +38,10 @@ function updateNavBar() {
   const usernameLink = document.getElementById("username");
   const logoutLink = document.getElementById("logout");
   const logoutContainer = document.getElementById("logout-container");
-  console.log("registerNavLink", registerNavLink);
-  console.log("loginNavLink", loginNavLink);
 
-
-if(logoutLink)
-{  logoutLink.addEventListener("click", logout);}
+  if (logoutLink) {
+    logoutLink.addEventListener("click", logout);
+  }
 
   if (storeData?.isAuthenticated) {
     dashboardNavLink.style.display = "block";
@@ -52,7 +50,6 @@ if(logoutLink)
     usernameLink.innerHTML = storeData.user.name;
     usernameLink.style.display = "block";
     logoutContainer.style.display = "block";
-    console.log("storeData?.isAuthenticated", storeData?.isAuthenticated);
   } else {
     dashboardNavLink.style.display = "none";
     registerNavLink.style.display = "block";

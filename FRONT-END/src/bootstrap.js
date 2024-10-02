@@ -1,4 +1,4 @@
-const bootstrap = () => {
+const bootstrap = (path) => {
   //true means "should I look recursively or not"
   const context = require.context("./pages", true, /\.js$/); // look recurservly in the components folder for .js files
 
@@ -9,9 +9,11 @@ const bootstrap = () => {
 
     //check if class is exported as default, if not, we just need the name of the export const function
     const Class = module.default || module;
-    console.log("Class ", typeof Class); //verify the type off to check the type of needed
 
-    if (typeof Class === "function") {
+    if (
+      typeof Class === "function" &&
+      `/${module.default.name.toLowerCase()}` === path
+    ) {
       const instance = new Class();
     }
   });
