@@ -7,7 +7,7 @@ const Dotenv = require("dotenv-webpack"); // Import the plugin
 const isProduction = process.env.NODE_ENV === "production";
 
 module.exports = {
-  mode: "production",
+  mode: "development",
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -16,7 +16,7 @@ module.exports = {
 
   devServer: {
     static: {
-      directory: path.resolve(__dirname, "src"),
+      directory: path.resolve(__dirname, "dist"),
     },
     port: 3002,
     open: true,
