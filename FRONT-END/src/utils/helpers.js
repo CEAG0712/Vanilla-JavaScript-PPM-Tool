@@ -22,6 +22,20 @@ export const navigateTo = (url) => {
   router();
 };
 
+export const controlNavigation = () => {
+  window.addEventListener("popstate", router); // whenever we go back or forward on the browser
+  document.addEventListener("DOMContentLoaded", () => {
+    document.body.addEventListener("click", (e) => {
+      if (e.target.matches("[data-link]")) {
+        e.preventDefault(); // so it doesnt reload
+        navigateTo(e.target.href);
+      }
+    });
+
+    router();
+  });
+};
+
 function logout(e) {
   e.preventDefault();
   store.auth.clearState();

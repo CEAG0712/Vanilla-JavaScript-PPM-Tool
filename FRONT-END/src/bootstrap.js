@@ -14,7 +14,9 @@ const bootstrap = (path) => {
       typeof Class === "function" &&
       `/${module.default.name.toLowerCase()}` === path
     ) {
-      const instance = new Class();
+      console.log("new class instantiated");
+
+      new Class();
     }
   });
 };

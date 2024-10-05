@@ -28,6 +28,9 @@ class Dashboard {
 
   async onSubmitCreateForm(event) {
     event.preventDefault();
+    event.stopImmediatePropagation();
+
+    console.log("onSubmitCreateForm called");
 
     if (!this.createForm.taskSummary.value) {
       alert("Task Summary is a required field");
@@ -171,7 +174,7 @@ class Dashboard {
   };
 
   createTaskList = () => {
-    console.log("createTaskList called");
+    // console.log("createTaskList called");
 
     let columns = [
       { status: COLUMN_STATUS.TO_DO_STATUS, tag: this.todoList },
@@ -184,8 +187,8 @@ class Dashboard {
         .filter((el) => el.status === item.status) // Filter tasks by status
         .sort((a, b) => a.hierarchy - b.hierarchy); // Sort by hierarchy in ascending order
 
-      console.log("item.tag ", item?.tag);
-      console.log("sortedListItemsByHierarchy ", sortedListItemsByHierarchy);
+      // console.log("item.tag ", item?.tag);
+      // console.log("sortedListItemsByHierarchy ", sortedListItemsByHierarchy);
 
       if (item?.tag) {
         item.tag.innerHTML = sortedListItemsByHierarchy
@@ -366,7 +369,6 @@ class Dashboard {
 
   render() {
     this.createTaskList();
-
     this.allowDropEventListener();
     this.dragEventListener();
     this.deleteEventListener();
