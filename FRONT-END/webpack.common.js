@@ -4,30 +4,13 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const Dotenv = require("dotenv-webpack"); // Import the plugin
 
-const isProduction = process.env.NODE_ENV === "production";
-
 module.exports = {
-  mode: "production",
-  performance: {
-    hints: false,
-    maxEntrypointSize: 512000,
-    maxAssetSize: 512000,
-  },
   entry: "./src/index.js",
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "index.js",
-  },
 
-  devServer: {
-    static: {
-      directory: path.resolve(__dirname, "dist"),
-    },
-    port: 3001,
-    open: true,
-    hot: true,
-    compress: true,
-    historyApiFallback: true,
+  output: {
+    filename: "index.bundle.js",
+    path: path.resolve(__dirname, "dist"),
+    clean: true,
   },
 
   module: {
