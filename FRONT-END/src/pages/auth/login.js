@@ -4,10 +4,12 @@ import Swal from "sweetalert2"; //https://sweetalert2.github.io/
 import { eventEmitter, navigateTo } from "../../utils/helpers.js";
 
 class Login {
+  pagePath1 = "/login";
+
   constructor() {
     this.loginForm = document.getElementById("login-form");
     console.log("this.loginForm ", this.loginForm);
-
+    this.pagePath = "/login";
     this.render();
   }
 
