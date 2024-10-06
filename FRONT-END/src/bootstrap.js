@@ -4,8 +4,11 @@ const bootstrap = (path) => {
 
   //gives us the keys. Keys meaning the name of the classes
   context.keys().forEach((element) => {
+    console.log("context Keys ", context.keys());
+
     //dynamically load the component - Imports authomaticall
     const module = context(element);
+    console.log("module ", module);
 
     //check if class is exported as default, if not, we just need the name of the export const function
     const Class = module.default || module;
