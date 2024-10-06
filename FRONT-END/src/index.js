@@ -1,7 +1,6 @@
 import "./styles/stylekanban.css";
 import routes from "./routes.js";
 import bootstrap from "./bootstrap.js";
-import store from "./store/index.js";
 import { runMiddlewares } from "./middleware/index.js";
 import { controlNavigation } from "./utils/helpers.js";
 
