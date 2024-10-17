@@ -33,12 +33,22 @@ class Register {
       !payload.password ||
       !payload.confirmPassword
     ) {
-      alert("all fields are required");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "All fields are required",
+        // footer: '<a href="#">Why do I have this issue?</a>'
+      });
       return;
     }
 
     if (payload.password !== payload.confirmPassword) {
-      alert("passwords must match");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Your password do not match",
+        // footer: '<a href="#">Why do I have this issue?</a>'
+      });
       return;
     }
 
