@@ -1,5 +1,6 @@
 import KanbanBoardApi from "../../services/KanbanBoardApi.js";
 import { COLUMN_STATUS } from "../../utils/constants.js";
+import Swal from "sweetalert2";
 
 //Responsible for managing logic for the task list
 class Dashboard {
@@ -33,7 +34,12 @@ class Dashboard {
     console.log("onSubmitCreateForm called");
 
     if (!this.createForm.taskSummary.value) {
-      alert("Task Summary is a required field");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Task Summary is a required field",
+        // footer: '<a href="#">Why do I have this issue?</a>'
+      });
       return;
     }
 
@@ -147,18 +153,29 @@ class Dashboard {
     });
   }
 
-  async onDelete(taskId) {
-    if (
-      window.confirm(
-        `You are deleting project task ${taskId}, this action cannot be undone`
-      )
-    )
-      try {
-        await KanbanBoardApi.deleteTask(taskId);
-        await this.getAllTasksFromApi();
-      } catch (error) {
-        alert("Unable to delete the task at this time");
+  onDelete(taskId) {
+    Swal.fire({
+      title: "You are deleting project task",
+      text: "this action cannot be undone",
+      showCancelButton: true,
+      confirmButtonText: "Yes",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          await KanbanBoardApi.deleteTask(taskId);
+          await this.getAllTasksFromApi();
+        } catch (error) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Unable to delete the task at this time",
+            // footer: '<a href="#">Why do I have this issue?</a>'
+          });
+        }
+      } else {
+        return;
       }
+    });
   }
 
   checkBackend = (res) => {

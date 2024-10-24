@@ -10,6 +10,19 @@
   font-size: 30px;
 }
 
+#username-nav-item,
+#logout-nav-item {
+  padding-top: 11px;
+}
+
+#logout-nav-item {
+  padding-left: 20px;
+}
+
+#dashboard-nav-link {
+  padding-top: 20px;
+}
+
 .card-header {
   text-align: center;
 }
@@ -69,17 +82,4 @@ ul {
 
 .over {
   padding: 50px 10px;
-}
-
-#username-nav-item,
-#logout-nav-item {
-  padding-top: 11px;
-}
-
-#logout-nav-item {
-  padding-left: 20px;
-}
-
-#dashboard-nav-link {
-  padding-top: 20px;
 }
